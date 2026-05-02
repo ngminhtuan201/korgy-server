@@ -1,4 +1,4 @@
-import Joi from "joi";
+import joi from "joi";
 import { Currency } from "../../../enums";
 
 export type CreatePaymentDto = {
@@ -6,9 +6,10 @@ export type CreatePaymentDto = {
   currency: Currency;
 };
 
-export const createPaymentSchema = Joi.object<CreatePaymentDto>({
-  amount: Joi.number().min(0).required(),
-  currency: Joi.string()
+export const createPaymentSchema = joi.object<CreatePaymentDto>({
+  amount: joi.number().min(0).required(),
+  currency: joi
+    .string()
     .valid(...Object.values(Currency))
     .required(),
 });

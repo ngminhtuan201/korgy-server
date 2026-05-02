@@ -39,6 +39,7 @@ import { authRouter } from "./modules/auth/auth.route";
 import { healthRouter } from "./modules/health/health.route";
 import { paymentRouter } from "./modules/payments/payment.route";
 import { uploadRouter } from "./modules/upload/upload.route";
+import { setRouter } from "./modules/sets/set.route";
 
 class ServerApp {
   private app: express.Application;
@@ -153,6 +154,10 @@ class ServerApp {
         {
           prefix: "upload",
           router: uploadRouter,
+        },
+        {
+          prefix: "sets",
+          router: setRouter,
         },
       ];
 

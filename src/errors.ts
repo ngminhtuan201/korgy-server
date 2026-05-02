@@ -13,6 +13,24 @@ const ERROR_MESSAGE_CODE = {
   ValidationFailed: "VALIDATION_FAILED",
   FileMissing: "FILE_MISSING",
   UserNotFound: "USER_NOT_FOUND",
+
+  SetNotFound: "SET_NOT_FOUND",
+  ClassNotFound: "CLASS_NOT_FOUND",
+  InvalidClassCode: "INVALID_CLASS_CODE",
+  AlreadyJoinedClass: "ALREADY_JOINED_CLASS",
+
+  SessionNotFound: "SESSION_NOT_FOUND",
+  InvalidGameCode: "INVALID_GAME_CODE",
+  SessionNotWaiting: "SESSION_NOT_WAITING",
+  SessionNotActive: "SESSION_NOT_ACTIVE",
+  SessionAlreadyStarted: "SESSION_ALREADY_STARTED",
+  SessionAlreadyFinished: "SESSION_ALREADY_FINISHED",
+  PlayerAlreadyJoined: "PLAYER_ALREADY_JOINED",
+  QuestionNotFound: "QUESTION_NOT_FOUND",
+  NotSessionOwner: "NOT_SESSION_OWNER",
+  NicknameTaken: "NICKNAME_TAKEN",
+  AnswerAlreadySubmitted: "ANSWER_ALREADY_SUBMITTED",
+  PlayerNotFound: "PLAYER_NOT_FOUND",
 };
 
 export class AppError extends Error {
@@ -95,5 +113,88 @@ export const errors = {
     httpStatus.NOT_FOUND,
     ERROR_MESSAGE_CODE.UserNotFound,
     "User not found.",
+  ),
+
+  SetNotFound: createError(
+    httpStatus.NOT_FOUND,
+    ERROR_MESSAGE_CODE.SetNotFound,
+    "Set not found.",
+  ),
+  ClassNotFound: createError(
+    httpStatus.NOT_FOUND,
+    ERROR_MESSAGE_CODE.ClassNotFound,
+    "Class not found.",
+  ),
+  InvalidClassCode: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.InvalidClassCode,
+    "Invalid class code.",
+  ),
+  AlreadyJoinedClass: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.AlreadyJoinedClass,
+
+    "You have already joined this class.",
+  ),
+
+  SessionNotFound: createError(
+    httpStatus.NOT_FOUND,
+    ERROR_MESSAGE_CODE.SessionNotFound,
+    "Session not found.",
+  ),
+  InvalidGameCode: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.InvalidGameCode,
+    "Invalid game code.",
+  ),
+  SessionNotWaiting: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.SessionNotWaiting,
+    "Session is not in waiting status.",
+  ),
+  SessionNotActive: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.SessionNotActive,
+    "Session is not active.",
+  ),
+  SessionAlreadyStarted: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.SessionAlreadyStarted,
+    "Session has already started.",
+  ),
+  SessionAlreadyFinished: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.SessionAlreadyFinished,
+    "Session has already finished.",
+  ),
+  PlayerAlreadyJoined: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.PlayerAlreadyJoined,
+    "You have already joined this session.",
+  ),
+  QuestionNotFound: createError(
+    httpStatus.NOT_FOUND,
+    ERROR_MESSAGE_CODE.QuestionNotFound,
+    "Question not found.",
+  ),
+  NotSessionOwner: createError(
+    httpStatus.FORBIDDEN,
+    ERROR_MESSAGE_CODE.NotSessionOwner,
+    "You are not the owner of this session.",
+  ),
+  NicknameTaken: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.NicknameTaken,
+    "This nickname is already taken in this session.",
+  ),
+  AnswerAlreadySubmitted: createError(
+    httpStatus.BAD_REQUEST,
+    ERROR_MESSAGE_CODE.AnswerAlreadySubmitted,
+    "You have already submitted an answer for this question.",
+  ),
+  PlayerNotFound: createError(
+    httpStatus.NOT_FOUND,
+    ERROR_MESSAGE_CODE.PlayerNotFound,
+    "Player not found in this session.",
   ),
 };

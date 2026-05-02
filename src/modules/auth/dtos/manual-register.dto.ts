@@ -1,4 +1,4 @@
-import Joi from "joi";
+import joi from "joi";
 
 export type ManualRegisterDto = {
   fullName: string;
@@ -6,8 +6,8 @@ export type ManualRegisterDto = {
   password: string;
 };
 
-export const manualRegisterSchema = Joi.object<ManualRegisterDto>({
-  fullName: Joi.string().required(),
-  email: Joi.string().email().required(),
-  password: Joi.string().required(),
+export const manualRegisterSchema = joi.object<ManualRegisterDto>({
+  fullName: joi.string().required(),
+  email: joi.string().email().required(),
+  password: joi.string().required(),
 });

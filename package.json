@@ -50,7 +50,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.983.0",
     "@bull-board/express": "^7.0.0",
-    "@google/genai": "^1.26.0",
+    "@google/genai": "^1.50.1",
     "@types/nodemailer": "^7.0.4",
     "bcryptjs": "^3.0.2",
     "bull": "^4.16.5",
@@ -80,6 +80,7 @@
     "passport-local": "^1.0.0",
     "rate-limit-redis": "^4.3.1",
     "sepay-pg-node": "^1.0.0",
+    "socket.io": "^4.8.3",
     "stripe": "^20.1.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",

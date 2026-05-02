@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 import { UserOAuthProvider, UserRole } from "../enums";
 import { BaseModel } from "./base";
 
+export interface Badge {
+  title: string;
+}
+
 export interface User extends BaseModel {
   email: string;
   emailVerified: boolean;

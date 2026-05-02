@@ -38,7 +38,7 @@ interface PaginationMetadata {
   pageNumber: number;
 }
 
-interface PaginatedItems<T> {
+export interface PaginatedItems<T> {
   items: Array<T>;
   metadata: PaginationMetadata;
 }

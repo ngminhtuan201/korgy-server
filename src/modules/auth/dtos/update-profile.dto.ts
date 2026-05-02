@@ -1,9 +1,9 @@
-import Joi from "joi";
+import joi from "joi";
 
 export type UpdateProfileDto = {
   fullName?: string;
 };
 
-export const updateProfileSchema = Joi.object<UpdateProfileDto>({
-  fullName: Joi.string().optional(),
+export const updateProfileSchema = joi.object<UpdateProfileDto>({
+  fullName: joi.string().optional(),
 });
