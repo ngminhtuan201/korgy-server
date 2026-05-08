@@ -42,6 +42,14 @@ export const getSession = catchAsync(async (req: Request, res: Response) => {
   return handleSuccess(res, { session });
 });
 
+export const getSessionByCode = catchAsync(
+  async (req: Request, res: Response) => {
+    const { code } = req.params;
+    const session = await sessionService.getSessionByGameCode(code as string);
+    return handleSuccess(res, { session });
+  },
+);
+
 export const joinSession = catchAsync(async (req: Request, res: Response) => {
   const sessionId = req.params.id as string;
   const dto = req.body as JoinSessionDto;
@@ -65,13 +73,6 @@ export const startSession = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const user = getCurrentUser(req);
   const session = await sessionService.startSession(id as string, user.id);
-  return handleSuccess(res, { session });
-});
-
-export const nextQuestion = catchAsync(async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const user = getCurrentUser(req);
-  const session = await sessionService.nextQuestion(id as string, user.id);
   return handleSuccess(res, { session });
 });
 

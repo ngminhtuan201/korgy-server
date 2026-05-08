@@ -1,8 +1,11 @@
 export enum QuestionType {
-  MULTIPLE_CHOICE = "MULTIPLE_CHOICE",
-  MULTIPLE_RESPONSE = "MULTIPLE_RESPONSE",
-  TRUE_FALSE = "TRUE_FALSE",
-  MATCHING = "MATCHING",
-  ORDERING = "ORDERING",
-  HOTSPOT = "HOTSPOT",
+  TRUE_FALSE = "true_false",
+  MULTIPLE_CHOICE = "multiple_choice",
+  MULTIPLE_RESPONSE = "multiple_response",
+  MATCHING = "matching",
+  ORDERING = "ordering",
+  FILL_BLANKS = "fill_blanks",
+  HOTSPOTS = "hotspots",
+  CATEGORIZE = "categorize",
+  TEXT_INPUT = "text_input",
 }

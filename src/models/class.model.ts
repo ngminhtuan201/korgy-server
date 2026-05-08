@@ -7,9 +7,8 @@ export class Class extends BaseModel {
   description?: string;
   subject?: string;
   code: string;
-  isPublic: boolean;
-  memberIds: string[];
   setIds: string[];
+  memberIds: string[];
   thumbnailUrl?: string;
 }
 
@@ -38,10 +37,6 @@ const classSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-    },
-    isPublic: {
-      type: Boolean,
-      default: false,
     },
     memberIds: {
       type: [String],

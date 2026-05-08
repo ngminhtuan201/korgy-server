@@ -19,7 +19,7 @@ export class LocalStorageAdapter implements IStorageAdapter {
 
     return {
       key,
-      url: `/${this._rootDir}/${key}`,
+      url: `http://localhost:8000/${this._rootDir}/${key}`,
     };
   }
 

@@ -40,6 +40,7 @@ import { healthRouter } from "./modules/health/health.route";
 import { paymentRouter } from "./modules/payments/payment.route";
 import { uploadRouter } from "./modules/upload/upload.route";
 import { setRouter } from "./modules/sets/set.route";
+import { sessionRouter } from "./modules/sessions/session.route";
 
 class ServerApp {
   private app: express.Application;
@@ -59,7 +60,12 @@ class ServerApp {
       this.logger.info("📦 [redis] Connection initialized successfully");
 
       // Security
-      this.app.use(helmet());
+      this.app.use(
+        helmet({
+          crossOriginEmbedderPolicy: false,
+          crossOriginResourcePolicy: { policy: "cross-origin" },
+        }),
+      );
       this.app.use(contextMiddleware);
 
       // Rate limiting
@@ -77,6 +83,7 @@ class ServerApp {
 
       // Cors
       const corsOrigins = config.CORS_ORIGINS;
+      console.log("==> Cors origins", corsOrigins);
       this.app.use(cors({ origin: corsOrigins, credentials: true }));
 
       this.app.use(cookieParser());
@@ -158,6 +165,10 @@ class ServerApp {
         {
           prefix: "sets",
           router: setRouter,
+        },
+        {
+          prefix: "sessions",
+          router: sessionRouter,
         },
       ];
 

@@ -11,9 +11,9 @@ import {
   getLeaderboard,
   getResults,
   getSession,
+  getSessionByCode,
   getSessions,
   joinSession,
-  nextQuestion,
   startSession,
   submitAnswer,
 } from "./session.controller";
@@ -31,7 +31,7 @@ sessionRouter.get("/", authenticate(), getSessions);
 
 sessionRouter.get("/:id", authenticate(), getSession);
 
-// sessionRouter.get("/:id", authenticate(), getSessionReport);
+sessionRouter.get("/join/:code", getSessionByCode);
 
 sessionRouter.post(
   "/:id/join",
@@ -40,8 +40,6 @@ sessionRouter.post(
 );
 
 sessionRouter.post("/:id/start", authenticate(), startSession);
-
-sessionRouter.post("/:id/next-question", authenticate(), nextQuestion);
 
 sessionRouter.post(
   "/:id/answer",

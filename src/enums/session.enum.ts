@@ -11,6 +11,8 @@ export enum SessionEndCondition {
 
 export enum SessionGame {
   QUIZ = "quiz",
+  WHACK_A_BUG = "whack-a-bug", // Đập gián
+  CHICKEN_TOSS = "chicken-toss", // Ném gà
 }
 
 export enum SessionPlayMode {

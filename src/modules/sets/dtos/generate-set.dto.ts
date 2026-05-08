@@ -2,14 +2,14 @@ import joi from "joi";
 
 export type GenerateSetDto = {
   topic: string;
-  level: string;
+  difficulty: string; // easy, medium, hard
   language: string;
   questionCount: number;
 };
 
 export const generateSetSchema = joi.object<GenerateSetDto>().keys({
   topic: joi.string().required(),
-  level: joi.string().required(),
+  difficulty: joi.string().required(),
   language: joi.string().required(),
   questionCount: joi.number().integer().required(),
 });

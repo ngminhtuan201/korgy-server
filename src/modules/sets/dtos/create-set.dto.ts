@@ -9,7 +9,7 @@ export type CreateSetDto = {
 
 export const createSetSchema = joi.object<CreateSetDto>().keys({
   name: joi.string().required(),
-  description: joi.string(),
+  description: joi.string().allow(""),
   isPublic: joi.boolean(),
   thumbnailUrl: joi.string(),
 });

@@ -4,6 +4,7 @@ import { BaseModel } from "./base";
 
 export interface Explanation {
   text?: string;
+  duration?: number;
   imageUrl?: string;
   audioUrl?: string;
 }
@@ -20,20 +21,41 @@ export interface BaseQuestion extends BaseModel {
   explanation?: Explanation;
 }
 
+export interface MultipleChoiceOption {
+  id: string;
+  text: string;
+  imageUrl?: string;
+  audioUrl?: string;
+  isCorrect: boolean;
+}
+
 export interface MultipleChoiceQuestion extends BaseQuestion {
   type: QuestionType.MULTIPLE_CHOICE;
+  options: MultipleChoiceOption[];
 }
 
 export interface MultipleResponseQuestion extends BaseQuestion {
   type: QuestionType.MULTIPLE_RESPONSE;
+  options: MultipleChoiceOption[];
 }
 
 export interface TrueFalseQuestion extends BaseQuestion {
   type: QuestionType.TRUE_FALSE;
+  trueOption: {
+    title?: string;
+    imageUrl?: string;
+    audioUrl?: string;
+  };
+  falseOption: {
+    title?: string;
+    imageUrl?: string;
+    audioUrl?: string;
+  };
 }
 
 export interface MatchingItem {
-  text: string;
+  id: string;
+  text?: string;
   imageUrl?: string;
   audioUrl?: string;
 }
@@ -53,13 +75,41 @@ export interface OrderingQuestion extends BaseQuestion {
   items: OrderingItem[];
 }
 
-export interface HotspotQuestion extends BaseQuestion {
-  type: QuestionType.HOTSPOT;
+export interface HotspotsQuestion extends BaseQuestion {
+  type: QuestionType.HOTSPOTS;
   imageUrl: string;
   hotspots: {
     x: number;
     y: number;
   }[];
+}
+
+export interface CategorizeItem {
+  id: string;
+  text?: string;
+  imageUrl?: string;
+  audioUrl?: string;
+}
+
+export interface CategorizeCategory {
+  id: string;
+  title: string;
+  imageUrl?: string;
+  audioUrl?: string;
+  items: CategorizeItem[];
+}
+
+export interface CategorizeQuestion extends BaseQuestion {
+  type: QuestionType.CATEGORIZE;
+  categories: CategorizeCategory[];
+}
+
+export interface TextInputQuestion extends BaseQuestion {
+  type: QuestionType.TEXT_INPUT;
+}
+
+export interface FillBlanksQuestion extends BaseQuestion {
+  type: QuestionType.FILL_BLANKS;
 }
 
 export type Question =
@@ -68,7 +118,10 @@ export type Question =
   | TrueFalseQuestion
   | MatchingQuestion
   | OrderingQuestion
-  | HotspotQuestion;
+  | HotspotsQuestion
+  | CategorizeQuestion
+  | TextInputQuestion
+  | FillBlanksQuestion;
 
 export class Set extends BaseModel {
   userId: string;
